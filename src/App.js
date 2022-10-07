@@ -11,7 +11,7 @@ export default function App() {
 
   let elements = items.map(function (item, index) {
     console.log(item);
-    return <h5> {petStore.paths['/pet'].post.description} </h5>;
+    return <h5> {petStore.paths[item].post.description} </h5>;
   });
 
   return <div>{elements}</div>;
