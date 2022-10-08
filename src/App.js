@@ -17,7 +17,13 @@ export default function App() {
 
   function selectedElementInfo() {
     if (selectedItem != '') {
-      return <p>{paths[selectedItem].get.summary} </p>;
+      return (
+        <p>
+          {paths[selectedItem].get.description}
+
+          {JSON.stringify(paths[selectedItem].get.requestBody)}
+        </p>
+      );
     } else return <p> </p>;
   }
 
