@@ -5,15 +5,22 @@ import petStore from './petstore.json';
 
 export default function App() {
   const paths = petStore.paths;
-  console.log(paths);
-
   const items = Object.keys(paths);
 
-  let elements = items.map(function (item, index) {
-    console.log(item);
-    // console.log(petStore.paths[item].put.description);
-    return <h5> {petStore.paths[item].put.description} </h5>;
+  console.log(Object.keys);
+
+  const elements = items.map(function (item, index) {
+    if (paths[item].hasOwnProperty('get')) {
+      return (
+        <div>
+          <h3> {item} </h3>
+          <p> {paths[item].get.description} </p>
+        </div>
+      );
+    }
   });
 
   return <div>{elements}</div>;
 }
+
+// {petStore.paths['/pet'].post.description}
