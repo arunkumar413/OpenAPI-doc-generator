@@ -10,15 +10,15 @@ export default function App() {
 
   console.log(Object.keys);
 
-  function handleResourceClick(item) {
-    setSelectedItem(item);
-    console.log(item);
+  function handleResourceClick(clickedEle) {
+    setSelectedItem(clickedEle);
+    console.log(clickedEle);
   }
 
   const elements = items.map(function (item, index) {
     if (paths[item].hasOwnProperty('get')) {
       return (
-        <div>
+        <div key={index.toString()}>
           <h3 onClick={() => handleResourceClick(item)}> {item} </h3>
           <p> {paths[item].get.summary} </p>
         </div>
@@ -30,7 +30,7 @@ export default function App() {
     <div className="container">
       <aside>{elements}</aside>{' '}
       <main>
-        <h2> Main content here </h2>
+        <h2> {selectedItem} </h2>
       </main>
     </div>
   );
