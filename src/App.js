@@ -15,6 +15,12 @@ export default function App() {
     console.log(clickedEle);
   }
 
+  function selectedElementInfo() {
+    if (selectedItem != '') {
+      return <p>{paths[selectedItem].get.summary} </p>;
+    } else return <p> </p>;
+  }
+
   const elements = items.map(function (item, index) {
     if (paths[item].hasOwnProperty('get')) {
       return (
@@ -31,6 +37,8 @@ export default function App() {
       <aside>{elements}</aside>{' '}
       <main>
         <h2> {selectedItem} </h2>
+
+        {selectedElementInfo()}
       </main>
     </div>
   );
